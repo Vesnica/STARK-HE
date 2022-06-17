@@ -7,7 +7,6 @@ use winter_air::{
     Air, AirContext, Assertion, EvaluationFrame, ProofOptions, TraceInfo,
     TransitionConstraintDegree,
 };
-use winter_math::fields::f128::BaseElement;
 use winter_math::FieldElement;
 use winter_prover::{Trace, TraceTable};
 use winter_utils::{ByteWriter, Serializable};
@@ -16,11 +15,13 @@ use base64::{decode, encode};
 use clap::Args;
 use serde::{Deserialize, Serialize};
 
+pub type BaseElement = winter_math::fields::f62::BaseElement;
+
 #[derive(Args, Debug)]
 #[clap(next_help_heading = "INPUT ARGUMENTS")]
 pub struct InputArg {
     #[clap(long, default_value_t = 0)]
-    pub start: u128,
+    pub start: u64,
     #[clap(long, default_value_t = 1024)]
     pub n: usize,
 }

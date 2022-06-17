@@ -8,13 +8,12 @@ use std::time::Instant;
 
 use log::debug;
 use winter_air::{FieldExtension, HashFunction, ProofOptions};
-use winter_math::fields::f128::BaseElement;
 use winter_math::log2;
 use winter_prover::{Prover, StarkProof, Trace};
 
 pub mod air;
 use air::{build_trace, get_pub_inputs, to_data};
-use air::{FreshAir, InputArg, PublicInputs, TraceType};
+use air::{BaseElement, FreshAir, InputArg, PublicInputs, TraceType};
 
 use clap::{ArgEnum, Args, Parser};
 
