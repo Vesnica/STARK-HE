@@ -62,14 +62,14 @@ pub struct Data {
 impl ::std::default::Default for Data {
     fn default() -> Self {
         Self {
-            result: [[vec![], vec![]], [vec![], vec![]]],
-            proof: "".into(),
+            result: Default::default(),
+            proof: Default::default(),
         }
     }
 }
 
 pub fn from_data(data: Data) -> (PublicInputs, Vec<u8>) {
-    let mut result = [[vec![], vec![]], [vec![], vec![]]];
+    let mut result: [[Vec<BaseElement>; COEFF_LEVEL]; VALUE_NUM] = Default::default();
     for i in 0..VALUE_NUM {
         for j in 0..COEFF_LEVEL {
             result[i][j] = data.result[i][j]
@@ -82,7 +82,7 @@ pub fn from_data(data: Data) -> (PublicInputs, Vec<u8>) {
 }
 
 pub fn to_data(proof: Vec<u8>, public_input: PublicInputs) -> Data {
-    let mut result = [[vec![], vec![]], [vec![], vec![]]];
+    let mut result: [[Vec<u64>; COEFF_LEVEL]; VALUE_NUM] = Default::default();
     for i in 0..VALUE_NUM {
         for j in 0..COEFF_LEVEL {
             result[i][j] = public_input.result[i][j]
@@ -109,12 +109,8 @@ pub struct CustomData {
 impl ::std::default::Default for CustomData {
     fn default() -> Self {
         Self {
-            modulus: vec![],
-            values: [
-                [[vec![], vec![]], [vec![], vec![]]],
-                [[vec![], vec![]], [vec![], vec![]]],
-                [[vec![], vec![]], [vec![], vec![]]],
-            ],
+            modulus: Default::default(),
+            values: Default::default(),
         }
     }
 }
