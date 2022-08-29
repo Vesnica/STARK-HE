@@ -1,7 +1,7 @@
 # STARK + HE(Homomoriphic Encryption)
 
 ## Need patch winter_math::fields::f128::BaseElement first:
-```
+```rust
 impl BaseElement {
     /// Creates a new field element from a u128 value. If the value is greater than or equal to
     /// the field modulus, modular reduction is silently performed. This function can also be used
