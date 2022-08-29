@@ -10,6 +10,7 @@ impl BaseElement {
         BaseElement(if value < M { value } else { value - M })
     }
 
+    /// Must add this function
     pub fn is_greater(&self, v: &Self) -> bool {
         self.0 > v.0
     }
